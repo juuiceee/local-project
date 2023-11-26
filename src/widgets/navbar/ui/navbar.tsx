@@ -2,11 +2,13 @@ import { routePath } from 'shared/config/route/config';
 import { classNames } from 'shared/lib/helpers/class-names/class-names';
 import styles from './navbar.module.scss';
 import { AppLink, EAppLinkTheme } from 'shared/ui/app-link/app-link';
+import { useTranslation } from 'react-i18next';
 
 interface INavbarProps {
   className?: string;
 }
 export const Navbar = ({ className }: INavbarProps) => {
+  const { t } = useTranslation();
   return (
     <div className={classNames(styles.navbar, [className])}>
       <div className={styles.links}>
@@ -15,14 +17,14 @@ export const Navbar = ({ className }: INavbarProps) => {
           to={routePath.main}
           className={styles.mainLink}
         >
-          Главная
+          {t('main_link')}
         </AppLink>
         <AppLink
           theme={EAppLinkTheme.SECONDARY}
           to={routePath.about}
           className={styles.aboutLink}
         >
-          О сайте
+          {t('about_link')}
         </AppLink>
       </div>
     </div>

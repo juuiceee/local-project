@@ -1,7 +1,7 @@
 type TMods = Record<string, boolean | string>;
 
 export function classNames(
-  cls: string,
+  style: string,
   additional: Array<string> = [],
   mods: TMods = {},
 ): string {
@@ -11,5 +11,5 @@ export function classNames(
 
   const positiveAdditional = additional.filter((a) => Boolean(a));
 
-  return [cls, ...positiveAdditional, ...positiveMods].join(' ');
+  return [style, ...positiveAdditional, ...positiveMods].join(' ');
 }
