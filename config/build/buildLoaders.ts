@@ -21,7 +21,7 @@ export function buildLoaders(options: IBuildOptions): Array<RuleSetRule> {
           modules: {
             auto: (resPath: string) => Boolean(resPath.includes('.module.')),
             localIdentName: isDev
-              ? '[path][name]__[local]-[hash:base64:5]'
+              ? '[name]__[local]-[hash:base64:5]'
               : '[hash:base64:8]',
           },
         },
@@ -30,5 +30,19 @@ export function buildLoaders(options: IBuildOptions): Array<RuleSetRule> {
     ],
   };
 
-  return [tsLoader, scssLoaders];
+  const svgLoader = {
+    test: /\.svg$/,
+    use: ['@svgr/webpack'],
+  };
+
+  const fileLoader = {
+    test: /\.(png|jpe?g|gif)$/i,
+    use: [
+      {
+        loader: 'file-loader',
+      },
+    ],
+  };
+
+  return [svgLoader, fileLoader, tsLoader, scssLoaders];
 }

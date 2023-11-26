@@ -19,7 +19,7 @@ export function buildWebpackConfig(options: IBuildOptions): Configuration {
     module: {
       rules: buildLoaders(options),
     },
-    resolve: buildResolves(),
+    resolve: buildResolves(paths),
     devtool: isDev ? 'inline-source-map' : false,
     devServer: isDev ? buildDevServer(options) : undefined,
   };
