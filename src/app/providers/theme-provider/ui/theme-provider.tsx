@@ -8,7 +8,7 @@ import {
 const defaultTheme =
   (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as ETheme) || ETheme.LIGHT;
 
-const ThemeProvider: FC = (props) => {
+const ThemeProvider: FC = ({ children }) => {
   const [theme, setTheme] = useState<ETheme>(defaultTheme);
 
   const defaultProps = useMemo(
@@ -21,7 +21,7 @@ const ThemeProvider: FC = (props) => {
 
   return (
     <ThemeContext.Provider value={defaultProps}>
-      {props.children}
+      {children}
     </ThemeContext.Provider>
   );
 };
