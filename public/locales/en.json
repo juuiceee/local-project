@@ -7,5 +7,7 @@
   "language": "English",
   "mom_cooks": "Mom cooks porridge every morning",
   "toggle": "Toggle",
-  "not_found_title": "Page not found"
+  "not_found_title": "Page not found",
+  "page_error_title": "Something went wrong",
+  "reload_page_button": "Refresh the page"
 }

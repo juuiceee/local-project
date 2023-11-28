@@ -7,5 +7,7 @@
   "language": "Русский",
   "mom_cooks": "мама варит кашу каждое утро",
   "toggle": "Переключить",
-  "not_found_title": "Страница не найдена"
+  "not_found_title": "Страница не найдена",
+  "page_error_title": "Что-то пошло не так",
+  "reload_page_button": "Обновить страницу"
 }

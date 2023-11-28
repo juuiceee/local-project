@@ -5,5 +5,7 @@
   "main_link": "main_link",
   "main_title": "main_title",
   "not_found_title": "not_found_title",
+  "page_error_title": "page_error_title",
+  "reload_page_button": "reload_page_button",
   "toggle": "toggle"
 }
