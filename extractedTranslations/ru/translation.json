@@ -4,5 +4,6 @@
   "language": "language",
   "main_link": "main_link",
   "main_title": "main_title",
+  "not_found_title": "not_found_title",
   "toggle": "toggle"
 }
