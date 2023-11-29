@@ -1,5 +1,5 @@
 import { routePath } from 'shared/config/route/config';
-import { classNames } from 'shared/lib/helpers/class-names/class-names';
+import { classNames } from 'shared/lib/class-names/class-names';
 import { AppLink, EAppLinkTheme } from 'shared/ui/app-link/app-link';
 import { useTranslation } from 'react-i18next';
 import styles from './navbar.module.scss';

@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/helpers/class-names/class-names';
+import { classNames } from 'shared/lib/class-names/class-names';
 import { useTranslation } from 'react-i18next';
 import { Button, EButtonTheme } from 'shared/ui/button/button';
 import styles from './language-switcher.module.scss';

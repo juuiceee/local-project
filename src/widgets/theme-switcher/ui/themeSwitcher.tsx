@@ -1,5 +1,5 @@
 import { useTheme, ETheme } from 'app/providers/theme-provider';
-import { classNames } from 'shared/lib/helpers/class-names/class-names';
+import { classNames } from 'shared/lib/class-names/class-names';
 import LightThemeIcon from 'shared/assets/light-theme-icon.svg';
 import DarkThemeIcon from 'shared/assets/dark-theme-icon.svg';
 import { Button, EButtonTheme } from 'shared/ui/button/button';

@@ -1,5 +1,6 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import {
   DefinePlugin,
   HotModuleReplacementPlugin,
@@ -25,6 +26,7 @@ export function buildPlugins(
     new DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
     }),
+    new BundleAnalyzerPlugin({ openAnalyzer: false }),
   ];
 
   if (isDev) {
