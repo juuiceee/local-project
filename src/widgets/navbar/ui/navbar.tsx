@@ -9,7 +9,7 @@ export const Navbar = ({ className }: INavbarProps) => {
   const { t } = useTranslation();
   return (
     <div className={classNames(styles.navbar, [className])}>
-      <div className={styles.links}></div>
+      <div className={styles.links} />
     </div>
   );
 };
