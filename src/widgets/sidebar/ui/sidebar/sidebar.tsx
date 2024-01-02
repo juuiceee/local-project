@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/class-names/class-names';
+import { classNames } from 'shared/lib/class-names/classNames';
 import { useState } from 'react';
 import { Button } from 'shared/ui/button/button';
 import { ThemeSwitcher } from 'widgets/theme-switcher';

@@ -1,10 +1,11 @@
-import { classNames } from 'shared/lib/class-names/class-names';
+import { classNames } from 'shared/lib/class-names/classNames';
 import { ButtonHTMLAttributes, FC } from 'react';
 import styles from './button.module.scss';
 
 export enum EButtonTheme {
   CLEAR = 'clear',
   SECONDARY = 'secondary',
+  OUTLINE = 'outline',
 }
 
 interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {

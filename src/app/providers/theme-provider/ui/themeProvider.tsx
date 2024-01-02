@@ -3,7 +3,7 @@ import {
   ETheme,
   LOCAL_STORAGE_THEME_KEY,
   ThemeContext,
-} from '../lib/theme-context';
+} from '../lib/themeContext';
 
 const defaultTheme =
   (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as ETheme) || ETheme.LIGHT;
