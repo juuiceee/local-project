@@ -6,10 +6,6 @@
   transition: width 0.3s;
 }
 
-.collapsed {
-  width: var(--sidebar-width-collapsed);
-}
-
 .switchers {
   position: absolute;
   bottom: 20px;
@@ -22,4 +18,52 @@
 
 .lngSwitcher {
   margin-left: 10px;
+}
+
+.collapsedBtn {
+  position: absolute;
+  right: -32px;
+  bottom: 32px;
+}
+
+.items {
+  margin-top: 20px;
+  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.icon {
+  fill: var(--inverted-primary-color);
+}
+
+.link {
+  margin-left: 10px;
+  opacity: 1;
+  transition: 0.4s opacity;
+}
+
+.collapsed {
+  width: var(--sidebar-width-collapsed);
+
+  .switchers {
+    flex-direction: column;
+  }
+
+  .lngSwitcher {
+    margin-left: 0;
+  }
+
+  .link {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    transition: 0.2s opacity;
+  }
 }

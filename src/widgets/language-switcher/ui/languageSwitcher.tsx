@@ -5,9 +5,13 @@ import styles from './languageSwitcher.module.scss';
 
 interface ILanguageSwitcherProps {
   className?: string;
+  short?: boolean;
 }
 
-export const LanguageSwitcher = ({ className }: ILanguageSwitcherProps) => {
+export const LanguageSwitcher = ({
+  className,
+  short,
+}: ILanguageSwitcherProps) => {
   const { t, i18n } = useTranslation();
 
   const toggle = () => {
@@ -20,7 +24,7 @@ export const LanguageSwitcher = ({ className }: ILanguageSwitcherProps) => {
       theme={EButtonTheme.CLEAR}
       onClick={toggle}
     >
-      {t('language')}
+      {short ? i18n.language.toLocaleUpperCase() : t('language')}
     </Button>
   );
 };
