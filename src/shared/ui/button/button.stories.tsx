@@ -21,6 +21,12 @@ Clear.args = {
   theme: EButtonTheme.CLEAR,
 };
 
+export const ClearInverted = Template.bind({});
+ClearInverted.args = {
+  children: 'Text',
+  theme: EButtonTheme.CLEAR_INVERTED,
+};
+
 export const Outlined = Template.bind({});
 Outlined.args = {
   children: 'Text',
