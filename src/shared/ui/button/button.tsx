@@ -22,6 +22,7 @@ type TButtonProps = {
   theme?: EButtonTheme;
   square?: boolean;
   size?: EButtonSize;
+  disabled?: boolean;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const Button: FC<TButtonProps> = (props) => {
@@ -31,6 +32,7 @@ export const Button: FC<TButtonProps> = (props) => {
     theme,
     square,
     size = EButtonSize.M,
+    disabled,
     ...otherProps
   } = props;
 
@@ -38,12 +40,14 @@ export const Button: FC<TButtonProps> = (props) => {
     [styles[theme]]: true,
     [styles.square]: square,
     [styles[size]]: true,
+    [styles.disabled]: disabled,
   };
 
   return (
     <button
       type="button"
       className={classNames(styles.button, [className], mods)}
+      disabled={disabled}
       {...otherProps}
     >
       {children}

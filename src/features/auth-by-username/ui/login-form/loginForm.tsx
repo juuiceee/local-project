@@ -1,30 +1,53 @@
-import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/class-names/classNames';
-import { Button } from 'shared/ui/button/button';
+import { useTranslation } from 'react-i18next';
+import { Button, EButtonTheme } from 'shared/ui/button/button';
 import { Input } from 'shared/ui/input/input';
-import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { memo, useCallback } from 'react';
+import { Text, ETextTheme } from 'shared/ui/text/text';
+import { loginActions } from 'features/auth-by-username/model/slices/loginSlice';
+import { getLoginState } from '../../model/selectors/getLoginState/getLoginState';
+import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import styles from './loginForm.module.scss';
 
 type TLoginFormProps = {
   className?: string;
 };
 
-export const LoginForm = ({ className }: TLoginFormProps) => {
+export const LoginForm = memo(({ className }: TLoginFormProps) => {
   const { t } = useTranslation();
 
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
+  const { username, password, error, isLoading } = useSelector(getLoginState);
 
-  const handleChangeUsername = (value: string) => {
-    setUsername(value);
-  };
+  const handleChangeUsername = useCallback(
+    (value: string) => {
+      dispatch(loginActions.setUsername(value));
+    },
+    [dispatch],
+  );
 
-  const handleChangePassword = (value: string) => {
-    setPassword(value);
-  };
+  const handleChangePassword = useCallback(
+    (value: string) => {
+      dispatch(loginActions.setPassword(value));
+    },
+    [dispatch],
+  );
+
+  const handleLoginClick = useCallback(() => {
+    dispatch(loginByUsername({ username, password }));
+  }, [dispatch, username, password]);
 
   return (
     <div className={classNames(styles.loginForm, [className])}>
+      <Text title={t('login_form_title')} />
+      {error && (
+        <Text
+          className={styles.error}
+          text={t('error_login')}
+          theme={ETextTheme.ERROR}
+        />
+      )}
       <Input
         placeholder={t('username_placeholder')}
         className={styles.input}
@@ -38,7 +61,14 @@ export const LoginForm = ({ className }: TLoginFormProps) => {
         value={password}
         onChange={handleChangePassword}
       />
-      <Button className={styles.loginBtn}>{t('login')}</Button>
+      <Button
+        onClick={handleLoginClick}
+        theme={EButtonTheme.OUTLINE}
+        className={styles.loginBtn}
+        disabled={isLoading}
+      >
+        {t('login')}
+      </Button>
     </div>
   );
-};
+});

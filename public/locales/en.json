@@ -12,5 +12,8 @@
   "reload_page_button": "Refresh the page",
   "login": "Sign in",
   "username_placeholder": "Enter username",
-  "password_placeholder": "Enter password"
+  "password_placeholder": "Enter password",
+  "login_form_title": "Authorization",
+  "error_login": "You entered an incorrect login or password.",
+  "logout": "Logout"
 }

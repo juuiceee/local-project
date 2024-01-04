@@ -59,3 +59,10 @@ Square.args = {
   square: true,
   size: EButtonSize.M,
 };
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  children: 'Wait...',
+  theme: EButtonTheme.OUTLINE,
+  disabled: true,
+};

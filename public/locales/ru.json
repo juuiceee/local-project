@@ -12,5 +12,8 @@
   "reload_page_button": "Обновить страницу",
   "login": "Войти",
   "username_placeholder": "Введите username",
-  "password_placeholder": "Введите пароль"
+  "password_placeholder": "Введите пароль",
+  "login_form_title": "Авторизация",
+  "error_login": "Вы ввели неверный логин или пароль",
+  "logout": "Выйти"
 }
