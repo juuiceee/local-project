@@ -10,5 +10,7 @@
   "not_found_title": "Страница не найдена",
   "page_error_title": "Что-то пошло не так",
   "reload_page_button": "Обновить страницу",
-  "login": "Войти"
+  "login": "Войти",
+  "username_placeholder": "Введите username",
+  "password_placeholder": "Введите пароль"
 }

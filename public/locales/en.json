@@ -10,5 +10,7 @@
   "not_found_title": "Page not found",
   "page_error_title": "Something went wrong",
   "reload_page_button": "Refresh the page",
-  "login": "Sign in"
+  "login": "Sign in",
+  "username_placeholder": "Enter username",
+  "password_placeholder": "Enter password"
 }

@@ -2,7 +2,7 @@ import { classNames } from 'shared/lib/class-names/classNames';
 import { useTranslation } from 'react-i18next';
 import { Button, EButtonTheme } from 'shared/ui/button/button';
 import { useCallback, useState } from 'react';
-import { Modal } from 'shared/ui/modal/modal';
+import { LoginModal } from 'features/auth-by-username';
 import styles from './navbar.module.scss';
 
 type TNavbarProps = {
@@ -13,8 +13,12 @@ export const Navbar = ({ className }: TNavbarProps) => {
 
   const [isOpenModal, setIsOpenModal] = useState(false);
 
-  const handleToggleModal = useCallback(() => {
-    setIsOpenModal((prev) => !prev);
+  const handleCloseModal = useCallback(() => {
+    setIsOpenModal(false);
+  }, []);
+
+  const handleOpenModal = useCallback(() => {
+    setIsOpenModal(true);
   }, []);
 
   return (
@@ -22,14 +26,11 @@ export const Navbar = ({ className }: TNavbarProps) => {
       <Button
         theme={EButtonTheme.CLEAR_INVERTED}
         className={styles.links}
-        onClick={handleToggleModal}
+        onClick={handleOpenModal}
       >
         {t('login')}
       </Button>
-      <Modal isOpen={isOpenModal} onClose={handleToggleModal}>
-        {/* eslint-disable-next-line */}
-        <p>asd</p>
-      </Modal>
+      <LoginModal isOpen={isOpenModal} onClose={handleCloseModal} />
     </div>
   );
 };

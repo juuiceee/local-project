@@ -14,23 +14,32 @@ import { Portal } from '../portal/portal';
 type TModalProps = PropsWithChildren<{
   className?: string;
   isOpen?: boolean;
+  isLazy?: boolean;
   onClose?: () => void;
 }>;
 
 const ANIMATION_DELAY = 300;
 
 export const Modal = (props: TModalProps) => {
-  const { children, className, isOpen, onClose } = props;
+  const { children, className, isOpen, isLazy, onClose } = props;
 
   const { theme } = useTheme();
 
   const [isClosing, setIsClosing] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
   const mods: Record<string, boolean> = {
     [styles.opened]: isOpen,
     [styles.closing]: isClosing,
   };
+
+  useEffect(() => {
+    if (isOpen) {
+      setIsMounted(true);
+    }
+  }, [isOpen]);
 
   const handleOnClose = useCallback(() => {
     if (onClose) {
@@ -62,6 +71,10 @@ export const Modal = (props: TModalProps) => {
 
     clearTimeout(timerRef.current);
   }, [isOpen, handleKeyDown]);
+
+  if (isLazy && !isMounted) {
+    return null;
+  }
 
   return (
     <Portal>
