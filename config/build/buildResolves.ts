@@ -1,7 +1,7 @@
 import { ResolveOptions } from 'webpack';
-import { IBuildPaths } from './types/config';
+import { TBuildPaths } from './types/config';
 
-export function buildResolves(paths: IBuildPaths): ResolveOptions {
+export function buildResolves(paths: TBuildPaths): ResolveOptions {
   return {
     extensions: ['.tsx', '.ts', '.js'],
     preferAbsolute: true,

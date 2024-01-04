@@ -1,8 +1,8 @@
 import { RuleSetRule } from 'webpack';
-import { IBuildOptions } from './types/config';
+import { TBuildOptions } from './types/config';
 import { buildCssLoader } from './loaders/buildCssLoader';
 
-export function buildLoaders(options: IBuildOptions): Array<RuleSetRule> {
+export function buildLoaders(options: TBuildOptions): Array<RuleSetRule> {
   const { isDev } = options;
 
   const tsLoader = {

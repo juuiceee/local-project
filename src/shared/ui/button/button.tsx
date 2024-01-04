@@ -17,14 +17,14 @@ export enum EButtonSize {
   XL = 'size_xl',
 }
 
-interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+type TButtonProps = {
   className?: string;
   theme?: EButtonTheme;
   square?: boolean;
   size?: EButtonSize;
-}
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 
-export const Button: FC<IButtonProps> = (props) => {
+export const Button: FC<TButtonProps> = (props) => {
   const {
     className,
     children,

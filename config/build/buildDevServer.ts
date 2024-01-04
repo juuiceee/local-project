@@ -1,7 +1,7 @@
 import { Configuration as DevServerConfiguration } from 'webpack-dev-server';
-import { IBuildOptions } from './types/config';
+import { TBuildOptions } from './types/config';
 
-export function buildDevServer(options: IBuildOptions): DevServerConfiguration {
+export function buildDevServer(options: TBuildOptions): DevServerConfiguration {
   return {
     port: options.port,
     open: true,

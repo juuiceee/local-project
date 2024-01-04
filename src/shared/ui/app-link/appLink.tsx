@@ -8,12 +8,12 @@ export enum EAppLinkTheme {
   SECONDARY = 'secondary',
 }
 
-interface IAppLinkProps extends LinkProps {
+type TAppLinkProps = {
   theme?: EAppLinkTheme;
   className?: string;
-}
+} & LinkProps;
 
-export const AppLink: FC<IAppLinkProps> = (props) => {
+export const AppLink: FC<TAppLinkProps> = (props) => {
   const {
     to,
     theme = EAppLinkTheme.PRIMARY,

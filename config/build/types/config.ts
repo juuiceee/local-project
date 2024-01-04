@@ -1,20 +1,20 @@
 type TBuildMode = 'development' | 'production';
 
-export interface IBuildPaths {
+export type TBuildPaths = {
   entry: string;
   build: string;
   html: string;
   src: string;
-}
+};
 
-export interface IBuildEnv {
+export type TBuildEnv = {
   mode: TBuildMode;
   port: number;
-}
+};
 
-export interface IBuildOptions {
+export type TBuildOptions = {
   mode: TBuildMode;
-  paths: IBuildPaths;
+  paths: TBuildPaths;
   isDev: boolean;
   port: number;
-}
+};

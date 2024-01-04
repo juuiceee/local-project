@@ -5,10 +5,10 @@ import { useCallback, useState } from 'react';
 import { Modal } from 'shared/ui/modal/modal';
 import styles from './navbar.module.scss';
 
-interface INavbarProps {
+type TNavbarProps = {
   className?: string;
-}
-export const Navbar = ({ className }: INavbarProps) => {
+};
+export const Navbar = ({ className }: TNavbarProps) => {
   const { t } = useTranslation();
 
   const [isOpenModal, setIsOpenModal] = useState(false);

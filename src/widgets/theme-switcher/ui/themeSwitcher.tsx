@@ -5,11 +5,11 @@ import DarkThemeIcon from 'shared/assets/darkThemeIcon.svg';
 import { Button, EButtonTheme } from 'shared/ui/button/button';
 import styles from './themeSwitcher.module.scss';
 
-interface IThemeSwitcherProps {
+type TThemeSwitcherProps = {
   className?: string;
-}
+};
 
-export const ThemeSwitcher = ({ className }: IThemeSwitcherProps) => {
+export const ThemeSwitcher = ({ className }: TThemeSwitcherProps) => {
   const { theme, toggleTheme } = useTheme();
 
   return (

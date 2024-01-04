@@ -10,11 +10,11 @@ import { AppLink, EAppLinkTheme } from 'shared/ui/app-link/appLink';
 import { routePath } from 'shared/config/route/config';
 import styles from './sidebar.module.scss';
 
-interface ISidebarProps {
+type TSidebarProps = {
   className?: string;
-}
+};
 
-export const Sidebar = ({ className }: ISidebarProps) => {
+export const Sidebar = ({ className }: TSidebarProps) => {
   const { t } = useTranslation();
   const [collapsed, setCollapsed] = useState(false);
 

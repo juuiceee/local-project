@@ -8,10 +8,10 @@ import {
   WebpackPluginInstance,
 } from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import { IBuildOptions } from './types/config';
+import { TBuildOptions } from './types/config';
 
 export function buildPlugins(
-  options: IBuildOptions,
+  options: TBuildOptions,
 ): Array<WebpackPluginInstance> {
   const { paths, isDev } = options;
 

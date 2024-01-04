@@ -3,15 +3,15 @@ import { useTranslation } from 'react-i18next';
 import { Button, EButtonTheme } from 'shared/ui/button/button';
 import styles from './languageSwitcher.module.scss';
 
-interface ILanguageSwitcherProps {
+type TLanguageSwitcherProps = {
   className?: string;
   short?: boolean;
-}
+};
 
 export const LanguageSwitcher = ({
   className,
   short,
-}: ILanguageSwitcherProps) => {
+}: TLanguageSwitcherProps) => {
   const { t, i18n } = useTranslation();
 
   const toggle = () => {

@@ -1,11 +1,11 @@
 import { Configuration } from 'webpack';
-import { IBuildOptions } from './types/config';
+import { TBuildOptions } from './types/config';
 import { buildPlugins } from './buildPlugins';
 import { buildLoaders } from './buildLoaders';
 import { buildResolves } from './buildResolves';
 import { buildDevServer } from './buildDevServer';
 
-export function buildWebpackConfig(options: IBuildOptions): Configuration {
+export function buildWebpackConfig(options: TBuildOptions): Configuration {
   const { mode, paths, isDev } = options;
   return {
     mode,

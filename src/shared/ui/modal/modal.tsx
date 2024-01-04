@@ -10,7 +10,7 @@ import { classNames } from 'shared/lib/class-names/classNames';
 import styles from './modal.module.scss';
 import { Portal } from '../portal/portal';
 
-type IModalProps = PropsWithChildren<{
+type TModalProps = PropsWithChildren<{
   className?: string;
   isOpen?: boolean;
   onClose?: () => void;
@@ -18,7 +18,7 @@ type IModalProps = PropsWithChildren<{
 
 const ANIMATION_DELAY = 300;
 
-export const Modal = (props: IModalProps) => {
+export const Modal = (props: TModalProps) => {
   const { children, className, isOpen, onClose } = props;
 
   const [isClosing, setIsClosing] = useState(false);

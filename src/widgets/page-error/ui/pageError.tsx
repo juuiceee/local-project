@@ -3,11 +3,11 @@ import { classNames } from 'shared/lib/class-names/classNames';
 import { Button } from 'shared/ui/button/button';
 import styles from './pageError.module.scss';
 
-interface IPageErrorProps {
+type TPageErrorProps = {
   className?: string;
-}
+};
 
-export const PageError = ({ className }: IPageErrorProps) => {
+export const PageError = ({ className }: TPageErrorProps) => {
   const { t } = useTranslation();
 
   const reloadPage = () => window.location.reload();

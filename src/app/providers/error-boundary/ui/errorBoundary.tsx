@@ -1,20 +1,18 @@
-import React, { ErrorInfo, ReactNode, Suspense } from 'react';
+import React, { ErrorInfo, PropsWithChildren, Suspense } from 'react';
 import { PageError } from 'widgets/page-error';
 import { PageLoader } from 'widgets/page-loader';
 
-interface IErrorBoundaryProps {
-  children: ReactNode;
-}
+type TErrorBoundaryProps = PropsWithChildren<{}>;
 
-interface IErrorBoundaryState {
+type TErrorBoundaryState = {
   hasError: boolean;
-}
+};
 
 class ErrorBoundary extends React.Component<
-  IErrorBoundaryProps,
-  IErrorBoundaryState
+  TErrorBoundaryProps,
+  TErrorBoundaryState
 > {
-  constructor(props: IErrorBoundaryProps) {
+  constructor(props: TErrorBoundaryProps) {
     super(props);
     this.state = { hasError: false };
   }
