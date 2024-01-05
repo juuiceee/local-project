@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { StoreDecorator } from 'shared/config/storybook/store-decorator/storeDecorator';
-import { LoginForm } from './loginForm';
+import LoginForm from './loginForm';
 
 export default {
   title: 'features/LoginForm',
