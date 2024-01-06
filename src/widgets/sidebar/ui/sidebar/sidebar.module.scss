@@ -33,22 +33,6 @@
   flex-direction: column;
 }
 
-.item {
-  display: flex;
-  align-items: center;
-  margin-top: 10px;
-}
-
-.icon {
-  fill: var(--inverted-primary-color);
-}
-
-.link {
-  margin-left: 10px;
-  opacity: 1;
-  transition: 0.4s opacity;
-}
-
 .collapsed {
   width: var(--sidebar-width-collapsed);
 
@@ -58,12 +42,5 @@
 
   .lngSwitcher {
     margin-left: 0;
-  }
-
-  .link {
-    opacity: 0;
-    width: 0;
-    height: 0;
-    transition: 0.2s opacity;
   }
 }

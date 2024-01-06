@@ -15,5 +15,6 @@
   "password_placeholder": "Enter password",
   "login_form_title": "Authorization",
   "error_login": "You entered an incorrect login or password.",
-  "logout": "Logout"
+  "logout": "Logout",
+  "profile_link": "Profile"
 }

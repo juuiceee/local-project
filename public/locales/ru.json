@@ -15,5 +15,6 @@
   "password_placeholder": "Введите пароль",
   "login_form_title": "Авторизация",
   "error_login": "Вы ввели неверный логин или пароль",
-  "logout": "Выйти"
+  "logout": "Выйти",
+  "profile_link": "Профиль"
 }

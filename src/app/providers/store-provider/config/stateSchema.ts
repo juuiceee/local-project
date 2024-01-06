@@ -2,6 +2,7 @@ import { EnhancedStore } from '@reduxjs/toolkit';
 import { TCounterSchema } from 'entities/counter';
 import { TUserSchema } from 'entities/user';
 import { TLoginSchema } from 'features/auth-by-username';
+import { TProfileSchema } from 'entities/profile';
 import { createReducerManager } from './reducerManager';
 
 export type TStateSchema = {
@@ -10,6 +11,7 @@ export type TStateSchema = {
 
   // Async reducers
   login?: TLoginSchema;
+  profile?: TProfileSchema;
 };
 
 export type TStateSchemaKey = keyof TStateSchema;

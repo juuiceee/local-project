@@ -1,5 +1,5 @@
 import { StoreProvider } from './ui/storeProvider';
-import { createReduxStore } from './config/store';
+import { createReduxStore, TAppDispatch } from './config/store';
 import { TStateSchema, TReduxStoreWithManager } from './config/stateSchema';
 
 export {
@@ -7,4 +7,5 @@ export {
   createReduxStore,
   TStateSchema,
   TReduxStoreWithManager,
+  TAppDispatch,
 };

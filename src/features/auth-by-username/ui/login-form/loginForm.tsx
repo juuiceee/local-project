@@ -13,6 +13,7 @@ import {
   DynamicModuleLoader,
   TReducersList,
 } from 'shared/lib/components/dynamic-module-loader/dynamicModuleLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
@@ -22,16 +23,17 @@ import { loginByUsername } from '../../model/services/loginByUsername/loginByUse
 
 type TLoginFormProps = {
   className?: string;
+  onSuccess: () => void;
 };
 
 const initialReducers: TReducersList = {
   login: loginReducer,
 };
 
-const LoginForm = memo(({ className }: TLoginFormProps) => {
+const LoginForm = memo(({ className, onSuccess }: TLoginFormProps) => {
   const { t } = useTranslation();
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const username = useSelector(getLoginUsername);
   const password = useSelector(getLoginPassword);
   const error = useSelector(getLoginError);
@@ -51,9 +53,12 @@ const LoginForm = memo(({ className }: TLoginFormProps) => {
     [dispatch],
   );
 
-  const handleLoginClick = useCallback(() => {
-    dispatch(loginByUsername({ username, password }));
-  }, [dispatch, username, password]);
+  const handleLoginClick = useCallback(async () => {
+    const result = await dispatch(loginByUsername({ username, password }));
+    if (result.meta.requestStatus === 'fulfilled') {
+      onSuccess();
+    }
+  }, [dispatch, username, password, onSuccess]);
 
   return (
     <DynamicModuleLoader reducers={initialReducers}>

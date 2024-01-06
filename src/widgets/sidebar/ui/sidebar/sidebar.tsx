@@ -1,21 +1,17 @@
 import { classNames } from 'shared/lib/class-names/classNames';
-import { useState } from 'react';
+import { memo, useState } from 'react';
 import { Button, EButtonSize, EButtonTheme } from 'shared/ui/button/button';
 import { ThemeSwitcher } from 'widgets/theme-switcher';
 import { LanguageSwitcher } from 'widgets/language-switcher';
-import AboutIcon from 'shared/assets/aboutIcon.svg';
-import HomeIcon from 'shared/assets/homeIcon.svg';
-import { useTranslation } from 'react-i18next';
-import { AppLink, EAppLinkTheme } from 'shared/ui/app-link/appLink';
-import { routePath } from 'shared/config/route/config';
+import { sidebarItems } from '../../model/items';
 import styles from './sidebar.module.scss';
+import { SidebarItem } from '../sidebarItem/sidebarItem';
 
 type TSidebarProps = {
   className?: string;
 };
 
-export const Sidebar = ({ className }: TSidebarProps) => {
-  const { t } = useTranslation();
+export const Sidebar = memo(({ className }: TSidebarProps) => {
   const [collapsed, setCollapsed] = useState(false);
 
   const onToggle = () => {
@@ -40,22 +36,9 @@ export const Sidebar = ({ className }: TSidebarProps) => {
         {collapsed ? '>' : '<'}
       </Button>
       <div className={styles.items}>
-        <AppLink
-          theme={EAppLinkTheme.SECONDARY}
-          to={routePath.main}
-          className={styles.item}
-        >
-          <HomeIcon className={styles.icon} />
-          <span className={styles.link}>{t('main_link')}</span>
-        </AppLink>
-        <AppLink
-          theme={EAppLinkTheme.SECONDARY}
-          to={routePath.about}
-          className={styles.item}
-        >
-          <AboutIcon className={styles.icon} />
-          <span className={styles.link}>{t('about_link')}</span>
-        </AppLink>
+        {sidebarItems.map((item) => (
+          <SidebarItem key={item.path} item={item} collapsed={collapsed} />
+        ))}
       </div>
       <div className={styles.switchers}>
         <ThemeSwitcher />
@@ -63,4 +46,4 @@ export const Sidebar = ({ className }: TSidebarProps) => {
       </div>
     </div>
   );
-};
+});

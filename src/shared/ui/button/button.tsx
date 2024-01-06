@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/class-names/classNames';
-import { ButtonHTMLAttributes, FC } from 'react';
+import { ButtonHTMLAttributes, PropsWithChildren, memo } from 'react';
 import styles from './button.module.scss';
 
 export enum EButtonTheme {
@@ -17,15 +17,16 @@ export enum EButtonSize {
   XL = 'size_xl',
 }
 
-type TButtonProps = {
+type TButtonProps = PropsWithChildren<{
   className?: string;
   theme?: EButtonTheme;
   square?: boolean;
   size?: EButtonSize;
   disabled?: boolean;
-} & ButtonHTMLAttributes<HTMLButtonElement>;
+}> &
+  ButtonHTMLAttributes<HTMLButtonElement>;
 
-export const Button: FC<TButtonProps> = (props) => {
+export const Button = memo((props: TButtonProps) => {
   const {
     className,
     children,
@@ -53,4 +54,4 @@ export const Button: FC<TButtonProps> = (props) => {
       {children}
     </button>
   );
-};
+});
