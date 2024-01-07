@@ -1,8 +1,8 @@
-type TMods = Record<string, boolean | string>;
+export type TMods = Record<string, boolean | string | undefined>;
 
 export function classNames(
   style: string,
-  additional: Array<string> = [],
+  additional: Array<string | undefined> = [],
   mods: TMods = {},
 ): string {
   const positiveMods = Object.entries(mods)

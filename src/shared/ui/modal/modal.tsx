@@ -1,12 +1,13 @@
 import {
   MouseEvent,
+  MutableRefObject,
   PropsWithChildren,
   useCallback,
   useEffect,
   useRef,
   useState,
 } from 'react';
-import { classNames } from 'shared/lib/class-names/classNames';
+import { TMods, classNames } from 'shared/lib/class-names/classNames';
 import { useTheme } from 'app/providers/theme-provider';
 import styles from './modal.module.scss';
 import { Portal } from '../portal/portal';
@@ -28,9 +29,9 @@ export const Modal = (props: TModalProps) => {
   const [isClosing, setIsClosing] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
 
-  const timerRef = useRef<ReturnType<typeof setTimeout>>();
+  const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
 
-  const mods: Record<string, boolean> = {
+  const mods: TMods = {
     [styles.opened]: isOpen,
     [styles.closing]: isClosing,
   };

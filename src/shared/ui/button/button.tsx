@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/class-names/classNames';
+import { TMods, classNames } from 'shared/lib/class-names/classNames';
 import { ButtonHTMLAttributes, PropsWithChildren, memo } from 'react';
 import styles from './button.module.scss';
 
@@ -30,14 +30,14 @@ export const Button = memo((props: TButtonProps) => {
   const {
     className,
     children,
-    theme,
+    theme = EButtonTheme.OUTLINE,
     square,
     size = EButtonSize.M,
     disabled,
     ...otherProps
   } = props;
 
-  const mods: Record<string, boolean> = {
+  const mods: TMods = {
     [styles[theme]]: true,
     [styles.square]: square,
     [styles[size]]: true,

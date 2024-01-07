@@ -22,15 +22,13 @@ export const DynamicModuleLoader: FC<TDynamicModuleLoaderProps> = (
   const store = useStore() as TReduxStoreWithManager;
 
   useEffect(() => {
-    Object.entries(reducers).forEach(
-      ([reducerKey, reducer]: ReducersListEntry) => {
-        store.reducerManager.add(reducerKey, reducer);
-      },
-    );
+    Object.entries(reducers).forEach(([reducerKey, reducer]) => {
+      store.reducerManager.add(reducerKey as TStateSchemaKey, reducer);
+    });
     return () => {
       if (removeAfterUnmount) {
-        Object.entries(reducers).forEach(([reducerKey]: ReducersListEntry) => {
-          store.reducerManager.remove(reducerKey);
+        Object.entries(reducers).forEach(([reducerKey]) => {
+          store.reducerManager.remove(reducerKey as TStateSchemaKey);
         });
       }
     };

@@ -2,7 +2,7 @@ import { classNames } from 'shared/lib/class-names/classNames';
 import { useTranslation } from 'react-i18next';
 import { Button, EButtonTheme } from 'shared/ui/button/button';
 import { Input } from 'shared/ui/input/input';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { memo, useCallback } from 'react';
 import { Text, ETextTheme } from 'shared/ui/text/text';
 import {
@@ -14,6 +14,9 @@ import {
   TReducersList,
 } from 'shared/lib/components/dynamic-module-loader/dynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { AnyAction, ThunkDispatch } from '@reduxjs/toolkit';
+import { TThunkExtraArg } from 'app/providers/store-provider';
+import { TUser } from 'entities/user';
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';

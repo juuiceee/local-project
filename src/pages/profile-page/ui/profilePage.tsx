@@ -2,19 +2,32 @@ import {
   DynamicModuleLoader,
   TReducersList,
 } from 'shared/lib/components/dynamic-module-loader/dynamicModuleLoader';
-import { memo } from 'react';
-import { profileReducer } from '../../../entities/profile';
+import { memo, useEffect } from 'react';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import {
+  ProfileCard,
+  fetchProfileData,
+  profileReducer,
+} from '../../../entities/profile';
 
 const initialReducers: TReducersList = {
   profile: profileReducer,
 };
 
-const ProfilePage = memo(() => (
-  <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
-    <div>
-      <p>+</p>
-    </div>
-  </DynamicModuleLoader>
-));
+const ProfilePage = memo(() => {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(fetchProfileData());
+  }, [dispatch]);
+
+  return (
+    <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
+      <div>
+        <ProfileCard />
+      </div>
+    </DynamicModuleLoader>
+  );
+});
 
 export default ProfilePage;

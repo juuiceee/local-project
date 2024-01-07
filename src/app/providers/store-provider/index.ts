@@ -1,5 +1,10 @@
 import { StoreProvider } from './ui/storeProvider';
-import { createReduxStore, TAppDispatch } from './config/store';
+import {
+  createReduxStore,
+  TAppDispatch,
+  TThunkExtraArg,
+  TThunkConfig,
+} from './config/store';
 import { TStateSchema, TReduxStoreWithManager } from './config/stateSchema';
 
 export {
@@ -8,4 +13,6 @@ export {
   TStateSchema,
   TReduxStoreWithManager,
   TAppDispatch,
+  TThunkExtraArg,
+  TThunkConfig,
 };
