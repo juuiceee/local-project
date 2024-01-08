@@ -6,12 +6,12 @@ import {
   useRef,
   useState,
 } from 'react';
-import { classNames } from 'shared/lib/class-names/classNames';
+import { TMods, classNames } from 'shared/lib/class-names/classNames';
 import styles from './input.module.scss';
 
 type HTMLInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
-  'value' | 'onChange'
+  'value' | 'onChange' | 'readOnly'
 >;
 
 type TInputProps = {
@@ -19,6 +19,7 @@ type TInputProps = {
   value?: string;
   placeholder?: string;
   autoFocus?: boolean;
+  readOnly?: boolean;
   onChange?: (value: string) => void;
 } & HTMLInputProps;
 
@@ -29,6 +30,7 @@ export const Input = memo((props: TInputProps) => {
     placeholder,
     type = 'text',
     autoFocus,
+    readOnly,
     onChange,
     ...otherProps
   } = props;
@@ -57,15 +59,23 @@ export const Input = memo((props: TInputProps) => {
 
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
     onChange?.(e.target.value);
-    setCaretPosition(e.target.value.length);
+    if (!readOnly) {
+      setCaretPosition(e.target.value.length);
+    }
   };
 
   const handleOnSelect = (e: ChangeEvent<HTMLInputElement>) => {
-    setCaretPosition(e.target.selectionStart || 0);
+    if (!readOnly) {
+      setCaretPosition(e.target.selectionStart || 0);
+    }
+  };
+
+  const mods: TMods = {
+    [styles.readOnly]: readOnly,
   };
 
   return (
-    <div className={classNames(styles.inputWrapper, [className])}>
+    <div className={classNames(styles.inputWrapper, [className], mods)}>
       {placeholder && (
         <div className={styles.placeholder}>{`${placeholder} >`}</div>
       )}
@@ -79,9 +89,10 @@ export const Input = memo((props: TInputProps) => {
           onFocus={handleOnFocus}
           onBlur={handleOnBlur}
           onSelect={handleOnSelect}
+          readOnly={readOnly}
           {...otherProps}
         />
-        {isFocused && (
+        {isFocused && !readOnly && (
           <span
             className={styles.caret}
             style={{ left: `${caretPosition * 7.4}px` }}

@@ -66,3 +66,9 @@ Disabled.args = {
   theme: EButtonTheme.OUTLINE,
   disabled: true,
 };
+
+export const OutlineRed = Template.bind({});
+OutlineRed.args = {
+  children: 'Text',
+  theme: EButtonTheme.OUTLINE_RED,
+};

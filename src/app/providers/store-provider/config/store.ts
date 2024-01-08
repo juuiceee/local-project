@@ -29,14 +29,15 @@ export function createReduxStore(
     reducer: reducerManager.reduce as Reducer<CombinedState<TStateSchema>>,
     devTools: __IS_DEV__,
     preloadedState: initialState,
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware({
-      thunk: {
-        extraArgument: {
-          api: $api,
-          navigate,
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({
+        thunk: {
+          extraArgument: {
+            api: $api,
+            navigate,
+          },
         },
-      },
-    }),
+      }),
   });
 
   // @ts-ignore
@@ -51,7 +52,9 @@ export type TThunkExtraArg = {
   api: AxiosInstance;
   navigate?: (to: To, options?: NavigateOptions) => void;
 };
+
 export type TThunkConfig<T> = {
   rejectValue: T;
   extra: TThunkExtraArg;
+  state: TStateSchema;
 };

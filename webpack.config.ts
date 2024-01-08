@@ -14,7 +14,7 @@ export default (env: TBuildEnv) => {
   const mode = env.mode || 'development';
   const PORT = env.port || 3000;
   const isDev = mode === 'development';
-  const apiURL = env.apiURL || 'http://Localhost:8000';
+  const apiURL = env.apiURL || 'http://localhost:8000';
 
   const config: webpack.Configuration = buildWebpackConfig({
     mode,

@@ -19,6 +19,17 @@
   "profile_link": "Профиль",
   "profile_title": "Профиль",
   "profile_edit": "Редактировать",
-  "profile_placeholder_name": "Ваше имя",
-  "profile_placeholder_surname": "Ваша фамилия"
+  "profile_placeholder_name": "Имя",
+  "profile_placeholder_surname": "Фамилия",
+  "profile_fetch_error_title": "Не удалось загрузить профиль",
+  "profile_fetch_error_text": "Попробуйте обновить страницу",
+  "profile_save": "Сохранить",
+  "profile_cancel": "Отменить",
+  "profile_placeholder_age": "Возраст",
+  "profile_placeholder_city": "Город",
+  "profile_update_error": "Не удалось обновить профиль",
+  "profile_placeholder_username": "Username",
+  "profile_placeholder_avatar": "Аватар",
+  "profile_label_currency": "Валюта",
+  "profile_label_country": "Страна"
 }

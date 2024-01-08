@@ -4,6 +4,10 @@ import { NotFoundPage } from 'pages/not-found-page';
 import { ProfilePage } from 'pages/profile-page';
 import { RouteProps } from 'react-router-dom';
 
+type TAppRouteProps = RouteProps & {
+  authOnly?: boolean;
+};
+
 export enum EAppRoutes {
   MAIN = 'main',
   ABOUT = 'about',
@@ -19,7 +23,7 @@ export const routePath: Record<EAppRoutes, string> = {
   [EAppRoutes.NOT_FOUND]: '*',
 };
 
-export const routeConfig: Array<RouteProps> = [
+export const routeConfig: Array<TAppRouteProps> = [
   {
     path: routePath.main,
     element: <MainPage />,
@@ -31,6 +35,7 @@ export const routeConfig: Array<RouteProps> = [
   {
     path: routePath.profile,
     element: <ProfilePage />,
+    authOnly: true,
   },
   {
     path: routePath.not_found,

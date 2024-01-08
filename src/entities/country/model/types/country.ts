@@ -1,13 +1,7 @@
-export enum ECurrency {
-  USD = 'USD',
-  EUR = 'EUR',
-  GBP = 'GBP',
-}
-
 export enum ECountry {
   USA = 'USA',
   UK = 'UK',
-  UA = 'UA',
+  RU = 'RU',
   CAN = 'CAN',
   AUS = 'AUS',
   JPN = 'JPN',
