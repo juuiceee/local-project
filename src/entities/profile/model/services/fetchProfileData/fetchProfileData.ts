@@ -6,16 +6,17 @@ export const fetchProfileData = createAsyncThunk<
   TProfile,
   void,
   TThunkConfig<string>
->(
-  'profile/fetchProfileData',
-  async (_, { dispatch, extra, rejectWithValue }) => {
-    try {
-      const response = await extra.api.get<TProfile>('/profile');
+>('profile/fetchProfileData', async (_, { extra, rejectWithValue }) => {
+  try {
+    const response = await extra.api.get<TProfile>('/profile');
 
-      return response.data;
-    } catch (e) {
-      console.error(e);
-      return rejectWithValue('profile_fetch_error_title');
+    if (!response.data) {
+      throw new Error();
     }
-  },
-);
+
+    return response.data;
+  } catch (e) {
+    console.error(e);
+    return rejectWithValue('profile_fetch_error_title');
+  }
+});

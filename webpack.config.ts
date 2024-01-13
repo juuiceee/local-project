@@ -22,6 +22,7 @@ export default (env: TBuildEnv) => {
     isDev,
     port: PORT,
     apiURL,
+    project: 'frontend',
   });
 
   return config;

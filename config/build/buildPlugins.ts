@@ -13,7 +13,7 @@ import { TBuildOptions } from './types/config';
 export function buildPlugins(
   options: TBuildOptions,
 ): Array<WebpackPluginInstance> {
-  const { paths, isDev, apiURL } = options;
+  const { paths, isDev, apiURL, project } = options;
 
   const plugins = [
     new HtmlWebpackPlugin({
@@ -26,6 +26,7 @@ export function buildPlugins(
     new DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
       __API_URL__: JSON.stringify(apiURL),
+      __PROJECT__: JSON.stringify(project),
     }),
   ];
 

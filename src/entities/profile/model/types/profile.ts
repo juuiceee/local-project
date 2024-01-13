@@ -1,6 +1,14 @@
 import { ECountry } from 'entities/country';
 import { ECurrency } from 'entities/currency';
 
+export enum EValidateProfileError {
+  INCORRECT_USER_DATA = ' INCORRECT_USER_DATA',
+  INCORRECT_AGE = 'INCORRECT_AGE',
+  INCORRECT_COUNTRY = 'INCORRECT_COUNTRY',
+  NO_DATA = 'NO_DATA',
+  SERVER_ERROR = 'SERVER_ERROR',
+}
+
 export type TProfile = {
   name?: string;
   surname?: string;
@@ -18,4 +26,5 @@ export type TProfileSchema = {
   isLoading: boolean;
   error?: string;
   readonly: boolean;
+  validateErrors?: Array<EValidateProfileError>;
 };
