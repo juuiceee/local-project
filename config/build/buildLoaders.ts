@@ -1,6 +1,7 @@
 import { RuleSetRule } from 'webpack';
 import { TBuildOptions } from './types/config';
 import { buildCssLoader } from './loaders/buildCssLoader';
+import { buildBabelLoader } from './loaders/buildBabelLoader';
 
 export function buildLoaders(options: TBuildOptions): Array<RuleSetRule> {
   const { isDev } = options;
@@ -11,25 +12,7 @@ export function buildLoaders(options: TBuildOptions): Array<RuleSetRule> {
     exclude: /node_modules/,
   };
 
-  const babelLoader = {
-    test: /\.(js|jsx|tsx)$/,
-    exclude: /node_modules/,
-    use: {
-      loader: 'babel-loader',
-      options: {
-        presets: ['@babel/preset-env'],
-        plugins: [
-          [
-            'i18next-extract',
-            {
-              locales: ['ru', 'en'],
-              keyAsDefaultValue: true,
-            },
-          ],
-        ],
-      },
-    },
-  };
+  const babelLoader = buildBabelLoader(isDev);
 
   const scssLoaders = buildCssLoader(isDev);
 

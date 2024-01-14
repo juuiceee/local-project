@@ -5,4 +5,5 @@ export type TUser = {
 
 export type TUserSchema = {
   authData?: TUser;
+  _initialized: boolean;
 };
