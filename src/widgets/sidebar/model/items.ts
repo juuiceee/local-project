@@ -3,6 +3,7 @@ import { routePath } from 'shared/config/route/config';
 import AboutIcon from 'shared/assets/aboutIcon.svg';
 import HomeIcon from 'shared/assets/homeIcon.svg';
 import ProfileIcon from 'shared/assets/profileIcon.svg';
+import ArticlesIcon from 'shared/assets/articlesIcon.svg';
 
 export type TSidebarItem = {
   path: string;
@@ -26,6 +27,12 @@ export const sidebarItems: TSidebarItem[] = [
     path: routePath.profile,
     text: 'profile_link',
     Icon: ProfileIcon,
+    authOnly: true,
+  },
+  {
+    path: routePath.articles,
+    text: 'articles_link',
+    Icon: ArticlesIcon,
     authOnly: true,
   },
 ];

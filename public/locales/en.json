@@ -35,5 +35,6 @@
   "profile_placeholder_username": "Username",
   "profile_placeholder_avatar": "Avatar",
   "profile_label_currency": "Currency",
-  "profile_label_country": "Country"
+  "profile_label_country": "Country",
+  "articles_link": "Articles"
 }

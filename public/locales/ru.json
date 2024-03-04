@@ -35,5 +35,6 @@
   "profile_placeholder_username": "Username",
   "profile_placeholder_avatar": "Аватар",
   "profile_label_currency": "Валюта",
-  "profile_label_country": "Страна"
+  "profile_label_country": "Страна",
+  "articles_link": "Статьи"
 }
